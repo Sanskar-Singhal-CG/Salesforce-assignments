@@ -1,0 +1,46 @@
+.sfdx
+
+# LWSAssignment - Salesforce cache
+LWSAssignment/.sf/
+LWSAssignment/.sfdx/
+LWSAssignment/.localdevserver/
+LWSAssignment/deploy-options.json
+
+# LWSAssignment - LWC VSCode autocomplete
+LWSAssignment/**/lwc/jsconfig.json
+
+# LWSAssignment - LWC Jest coverage reports
+LWSAssignment/coverage/
+
+# LWSAssignment - Logs
+LWSAssignment/logs
+LWSAssignment/*.log
+LWSAssignment/npm-debug.log*
+LWSAssignment/yarn-debug.log*
+LWSAssignment/yarn-error.log*
+
+# LWSAssignment - Dependency directories
+LWSAssignment/node_modules/
+
+# LWSAssignment - ApexPMD cache
+LWSAssignment/.pmdCache
+
+# LWSAssignment - Eslint cache
+LWSAssignment/.eslintcache
+
+# LWSAssignment - MacOS system files
+LWSAssignment/.DS_Store
+
+# LWSAssignment - Windows system files
+LWSAssignment/Thumbs.db
+LWSAssignment/ehthumbs.db
+LWSAssignment/[Dd]esktop.ini
+LWSAssignment/$RECYCLE.BIN/
+
+# LWSAssignment - Local environment variables
+LWSAssignment/.env
+
+# LWSAssignment - Python Salesforce Functions
+LWSAssignment/**/__pycache__/
+LWSAssignment/**/.venv/
+LWSAssignment/**/venv/

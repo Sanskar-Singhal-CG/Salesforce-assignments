@@ -1,0 +1,78 @@
+<template>
+    <lightning-card>
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-around_large">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-m-around_medium">
+                <p class="slds-text-color_error">Error loading portfolio data. Please check the Account record.</p>
+            </div>
+        </template>
+
+        <template if:true={portfolio}>
+            <div class="portfolio-container">
+
+                <!-- Header / Hero Section -->
+                <div class="portfolio-hero">
+                    <div class="avatar-circle">
+                        <span class="avatar-initials">{initials}</span>
+                    </div>
+                    <h1 class="portfolio-name">{portfolio.Name}</h1>
+                    <p class="portfolio-title">{portfolio.Portfolio_Title__c}</p>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <template if:true={portfolio.Portfolio_LinkedIn__c}>
+                            <a href={portfolio.Portfolio_LinkedIn__c} target="_blank" class="social-btn linkedin-btn">
+                                LinkedIn
+                            </a>
+                        </template>
+                        <template if:true={portfolio.Portfolio_GitHub__c}>
+                            <a href={portfolio.Portfolio_GitHub__c} target="_blank" class="social-btn github-btn">
+                                GitHub
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <template if:true={portfolio.Portfolio_Bio__c}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="section-content">{portfolio.Portfolio_Bio__c}</p>
+                    </div>
+                </template>
+
+                <!-- Skills Section -->
+                <template if:true={skillsList}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="skills-container">
+                            <template for:each={skillsList} for:item="skill">
+                                <span key={skill} class="skill-badge">{skill}</span>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Experience Section -->
+                <template if:true={portfolio.Portfolio_Experience__c}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">Experience</h2>
+                        <p class="section-content">{portfolio.Portfolio_Experience__c}</p>
+                    </div>
+                </template>
+
+            </div>
+        </template>
+
+        <template if:true={noData}>
+            <div class="slds-m-around_medium slds-text-align_center">
+                <p>No portfolio account found. Please create an Account with <strong>Is Portfolio</strong> checked.</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

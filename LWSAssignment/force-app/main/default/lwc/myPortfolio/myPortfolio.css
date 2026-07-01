@@ -1,0 +1,122 @@
+.portfolio-container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+/* ── Hero / Header ── */
+.portfolio-hero {
+    background: linear-gradient(135deg, #0070d2 0%, #032d60 100%);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+}
+
+.avatar-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+}
+
+.avatar-initials {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.portfolio-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+    color: white;
+}
+
+.portfolio-title {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin: 0 0 1.2rem 0;
+    color: white;
+}
+
+/* ── Social Buttons ── */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 0.4rem 1.1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.social-btn:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.linkedin-btn {
+    background-color: #0077b5;
+    color: white;
+}
+
+.github-btn {
+    background-color: #24292e;
+    color: white;
+}
+
+/* ── Sections ── */
+.portfolio-section {
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.portfolio-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #032d60;
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section-content {
+    font-size: 0.95rem;
+    color: #3e3e3c;
+    line-height: 1.7;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* ── Skills ── */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-badge {
+    background-color: #e8f4fd;
+    color: #0070d2;
+    border: 1px solid #b3d9f7;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
