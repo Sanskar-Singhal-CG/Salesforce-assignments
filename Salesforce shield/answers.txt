@@ -1,0 +1,26 @@
+Q1. B) A native Salesforce security layer for encryption, audit, monitoring, and threat response
+Q2. A) Deterministic Encryption
+Q3. B) Probabilistic Encryption
+Q4. C) FieldHistoryArchive
+Q5. B) 18 months
+Q6. B) EventLogFile
+Q7. C) Event Monitoring
+Q8. C) Transaction Security Policies
+Q9. B) Classify data → define policies → test in sandbox → enable in production
+Q10. B) The same input value can produce different encrypted outputs each time
+
+---
+
+SA1. 
+Deterministic encryption always produces the same ciphertext for the same input which allows you to search and filter on the field.
+Probabilistic encryption produces a different ciphertext each time, offering stronger security but no query support.
+Example: use Deterministic for an Email field (needs searching) and 
+         Probabilistic for a Credit Card Number field (only stored, never searched).
+
+SA2. 
+Standard Field History Tracking only retains data for 18 months before it is automatically purged, which is not enough for regulations like SOX or HIPAA. 
+Field Audit Trail stores changes in the FieldHistoryArchive object for up to 10 years (or indefinitely until deleted), making it suitable for long-term compliance requirements.
+
+SA3. 
+Event Monitoring would log the report export event, capturing details like the user, time, and number of records downloaded.
+A Transaction Security Policy could automatically block the export or send an alert when the download threshold is exceeded. Field Audit Trail would provide a historical record of any data changes made during or around the incident, supporting a full investigation.
