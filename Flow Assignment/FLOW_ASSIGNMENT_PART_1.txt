@@ -1,0 +1,22 @@
+Part 1: Conceptual Questions - Answers
+
+1. What is a Flow in Salesforce and why is it used?
+A Flow is a tool in Salesforce that lets you automate tasks without writing code. 
+You just drag and drop elements to build a process, like collecting info from a user or updating records automatically.
+2. Differentiate between Screen Flow and Autolaunched Flow.
+A Screen Flow shows screens to the user so they can enter or see information while the flow is running, kind of like filling out a form.
+An Autolaunched Flow runs quietly in the background, triggered by something like a record being created or updated.
+
+3. What are variables in Flows and how are they used?
+Variables are like containers that hold information temporarily while the flow is running, 
+for example a name, email, or number. 
+You use them to store data collected from the user or from a record, and then use that stored value later in the flow.
+
+4. Explain the role of the Decision element in a Flow.
+The Decision element is a "if then" step.
+It checks a condition, for example if the condition is greater than a certain value,
+it then sends the flow to different paths depending on whether the condition is true or false.
+
+5. What are the limitations of using Flows compared to Apex?
+Flows are great for simple to medium automation, but they can get messy and hard to manage for very complex logic. 
+Apex code is more powerful and flexible and it can handle complicated business rules better.
