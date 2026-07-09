@@ -1,0 +1,46 @@
+public class UserCalloutService {
+    public static void fetchUsers() {
+
+        //first create the http request and set its endpoints and http method
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+
+        request.setEndpoint('https://dummyjson.com/users');
+        request.setMethod('GET');
+
+        HttpResponse response = http.send(request);
+
+        //then the http status code as well as the api response is printed in the debug logs
+        System.debug('HTTP Status Code: ' + response.getStatusCode());
+        System.debug('Full Response: ' + response.getBody());
+
+        //then desearilize the incoming response from json format to a map format
+        //for example : { "users":{nested jsons}, "somethingsomething" : {}, "something": { ... }, .....}
+        Map<String, Object> parsedResponse =
+            (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+
+
+        //now extract the users from the map which contains an array of objects representing all users
+        List<Object> users =
+            (List<Object>) parsedResponse.get('users');
+
+        //empty list where the lastname of each user will be stored
+        List<String> lastNames = new List<String>();
+
+
+        //for every user in the users list
+        for (Object obj : users) {
+
+            //each users data is in the format {"id":1, "name": s, "lastName":ss, "firstName": as, .....}
+            //here the map will contain key,value pairs like id,1 and lastname,value for one user at a time
+            Map<String, Object> userMap = (Map<String, Object>) obj;
+
+            //then get the LastName key from the map we made above and add the lastName to this list of lastNames
+            lastNames.add((String) userMap.get('lastName'));
+        }
+
+
+        //then simply print the lastnames
+        System.debug('Last Names List: ' + lastNames);
+    }
+}
