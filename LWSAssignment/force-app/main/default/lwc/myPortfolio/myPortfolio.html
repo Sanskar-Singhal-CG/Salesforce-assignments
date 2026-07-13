@@ -22,6 +22,19 @@
                     </div>
                     <h1 class="portfolio-name">{portfolio.Name}</h1>
                     <p class="portfolio-title">{portfolio.Portfolio_Title__c}</p>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <template if:true={portfolio.Portfolio_Email__c}>
+                            <p>{portfolio.Portfolio_Email__c}</p>
+                        </template>
+                        <template if:true={portfolio.Portfolio_Phone__c}>
+                            <p>{portfolio.Portfolio_Phone__c}</p>
+                        </template>
+                        <template if:true={portfolio.Portfolio_Location__c}>
+                            <p>{portfolio.Portfolio_Location__c}</p>
+                        </template>
+                    </div>
 
                     <!-- Social Links -->
                     <div class="social-links">
@@ -58,11 +71,45 @@
                     </div>
                 </template>
 
-                <!-- Experience Section -->
-                <template if:true={portfolio.Portfolio_Experience__c}>
+                <!-- Projects Section -->
+                <template if:true={projectsList}>
                     <div class="portfolio-section">
-                        <h2 class="section-title">Experience</h2>
-                        <p class="section-content">{portfolio.Portfolio_Experience__c}</p>
+                        <h2 class="section-title">Projects</h2>
+                        <template for:each={projectsList} for:item="project">
+                            <div key={project.id} class="project-item">
+                                <h3 class="project-title">{project.title}</h3>
+                                <p class="project-tech">{project.tech}</p>
+                                <p class="project-description">{project.description}</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- Education Section -->
+                <template if:true={portfolio.Portfolio_Education__c}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">Education</h2>
+                        <p class="section-content">{portfolio.Portfolio_Education__c}</p>
+                    </div>
+                </template>
+
+                <!-- Certifications Section -->
+                <template if:true={certificationsList}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">Certifications</h2>
+                        <ul class="list-content">
+                            <template for:each={certificationsList} for:item="cert">
+                                <li key={cert}>{cert}</li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+
+                <!-- Achievements Section -->
+                <template if:true={portfolio.Portfolio_Achievements__c}>
+                    <div class="portfolio-section">
+                        <h2 class="section-title">Achievements</h2>
+                        <p class="section-content">{portfolio.Portfolio_Achievements__c}</p>
                     </div>
                 </template>
 

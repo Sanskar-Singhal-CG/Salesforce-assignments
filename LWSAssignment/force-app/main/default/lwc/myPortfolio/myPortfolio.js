@@ -36,6 +36,40 @@ export default class MyPortfolio extends LightningElement {
             .filter(s => s.length > 0);
     }
 
+    // Parse projects from structured format
+    get projectsList() {
+        if (!this.portfolio || !this.portfolio.Portfolio_Projects__c) return null;
+        try {
+            const projects = [];
+            const projectBlocks = this.portfolio.Portfolio_Projects__c.split('\n\n');
+            
+            projectBlocks.forEach((block, index) => {
+                const lines = block.split('\n').filter(l => l.trim());
+                if (lines.length >= 2) {
+                    projects.push({
+                        id: index,
+                        title: lines[0],
+                        tech: lines[1],
+                        description: lines.slice(2).join(' ')
+                    });
+                }
+            });
+            
+            return projects.length > 0 ? projects : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    // Parse certifications (line-separated)
+    get certificationsList() {
+        if (!this.portfolio || !this.portfolio.Portfolio_Certifications__c) return null;
+        return this.portfolio.Portfolio_Certifications__c
+            .split('\n')
+            .map(s => s.trim())
+            .filter(s => s.length > 0);
+    }
+
     get noData() {
         return !this.isLoading && !this.portfolio && !this.error;
     }

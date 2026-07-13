@@ -120,3 +120,58 @@
     font-size: 0.82rem;
     font-weight: 600;
 }
+
+/* ── Contact Info ── */
+.contact-info {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ── Projects ── */
+.project-item {
+    margin-bottom: 1.5rem;
+}
+
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
+.project-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #032d60;
+    margin: 0 0 0.3rem 0;
+}
+
+.project-tech {
+    font-size: 0.85rem;
+    color: #0070d2;
+    font-style: italic;
+    margin: 0 0 0.4rem 0;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: #3e3e3c;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Lists ── */
+.list-content {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.list-content li {
+    font-size: 0.9rem;
+    color: #3e3e3c;
+    line-height: 1.7;
+    margin-bottom: 0.3rem;
+}
